@@ -25,7 +25,6 @@ def create_and_save_gif(path, filetype, name):
     for filepath in sorted_image_paths_list:
         gif_images.append(imageio.imread(filepath))
     imageio.mimsave(f"{path}/{name}.gif", gif_images)
-    return gif_images, frames_per_second
 
 
 create_and_save_gif("data/gif", "png", "testanimation")
