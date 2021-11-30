@@ -5,7 +5,9 @@ import imageio
 def create_and_save_gif(path, filetype, name):
     """ Creates an animated gif from images
 
-    needs the package glob and imageio; stores the gif in the same path as input images
+    needs the package glob and imageio;
+    stores the gif in the same path as input images;
+    assumes images to be named by integer numbers e.g. 1.png, 2.png,...
 
     Parameters
     ----------
