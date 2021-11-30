@@ -2,7 +2,7 @@ import glob
 import imageio
 
 
-def create_and_save_gif(path, filetype, name, frames_per_second):
+def create_and_save_gif(path, filetype, name):
     """ Creates an animated gif from images
 
     needs the package glob and imageio;
@@ -17,8 +17,6 @@ def create_and_save_gif(path, filetype, name, frames_per_second):
         The file-ending of the images, e.g. png, jpg, etc
     name : str
         The name used for saving the gif
-    frames_per_second : float
-        The number of frames per second
     """
     image_paths_list = glob.glob(f"{path}/*.{filetype}")
     sorted_image_paths_list = sorted(image_paths_list,
@@ -26,8 +24,8 @@ def create_and_save_gif(path, filetype, name, frames_per_second):
     gif_images = []
     for filepath in sorted_image_paths_list:
         gif_images.append(imageio.imread(filepath))
-    imageio.mimsave(f"{path}/{name}.gif", gif_images, fps=frames_per_second)
+    imageio.mimsave(f"{path}/{name}.gif", gif_images)
     return gif_images, frames_per_second
 
 
-create_and_save_gif("data/gif", "png", "testanimation", 20)
+create_and_save_gif("data/gif", "png", "testanimation")
